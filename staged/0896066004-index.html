@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ремонт на покриви | Бригада „Ново начало" — всичко за вашия покрив от А до Я</title>
+<meta name="description" content="Професионален ремонт и изграждане на покриви в цяла България. Метални покриви, керемиди, хидроизолация, улуци и тенекеджийски услуги. Безплатен оглед и гаранция.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sofia+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#161d26; --slate2:#1f2a37; --slate3:#2b3a4a;
+  --brick:#c0392b; --brick-d:#9e2b1f; --ember:#e07b39; --amber:#f0a04b;
+  --cream:#f6f2ec; --paper:#fbf9f6; --ink:#1a222c; --muted:#5d6b7a; --line:#e5ddd2;
+  --ok:#2e8b57;
+  --shadow:0 18px 45px -20px rgba(20,26,34,.45);
+  --shadow-sm:0 8px 24px -14px rgba(20,26,34,.4);
+  --r:18px; --rs:12px;
+  --wrap:1180px;
+  --f-head:'Sofia Sans',system-ui,sans-serif;
+  --f-body:'Manrope',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 22px}
+h1,h2,h3,.h{font-family:var(--f-head);line-height:1.08;letter-spacing:-.01em}
+section{position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brick)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--brick);display:inline-block}
+.sec-head{max-width:660px;margin-bottom:38px}
+.sec-head h2{font-size:clamp(1.9rem,4.4vw,2.9rem);font-weight:800;margin:14px 0 12px;color:var(--slate)}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f-body);font-weight:700;font-size:1rem;padding:15px 26px;border-radius:60px;border:0;cursor:pointer;transition:.22s;min-height:52px}
+.btn-primary{background:linear-gradient(135deg,var(--brick),var(--brick-d));color:#fff;box-shadow:0 14px 30px -12px rgba(192,57,43,.75)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(192,57,43,.85)}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.btn-dark{background:var(--slate);color:#fff}
+.btn-dark:hover{background:var(--slate3);transform:translateY(-2px)}
+.btn-lg{padding:17px 32px;font-size:1.05rem}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:80;transition:.3s}
+.hbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+header.scrolled{background:rgba(22,29,38,.92);backdrop-filter:blur(12px);box-shadow:0 6px 24px -14px rgba(0,0,0,.6)}
+.logo{display:flex;align-items:center;gap:11px;color:#fff;font-family:var(--f-head)}
+.logo .mark{width:42px;height:42px;flex:0 0 42px;border-radius:11px;background:linear-gradient(135deg,var(--brick),var(--ember));display:grid;place-items:center;box-shadow:0 8px 20px -8px rgba(192,57,43,.7)}
+.logo .mark svg{width:24px;height:24px}
+.logo .txt b{display:block;font-size:1.16rem;font-weight:800;line-height:1;letter-spacing:-.01em}
+.logo .txt span{display:block;font-family:var(--f-body);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-top:3px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{color:rgba(255,255,255,.86);font-weight:600;font-size:.95rem;transition:.2s}
+.nav a:hover{color:#fff}
+.hcta{display:flex;align-items:center;gap:16px}
+.hphone{color:#fff;font-weight:800;font-family:var(--f-head);font-size:1.05rem;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.hphone svg{width:18px;height:18px;color:var(--amber)}
+.burger{display:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);width:48px;height:48px;border-radius:12px;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center}
+.burger span{width:22px;height:2px;background:#fff;border-radius:2px;transition:.25s}
+/* MOBILE MENU */
+.mmenu{position:fixed;inset:0;z-index:90;background:linear-gradient(160deg,var(--slate),var(--slate2));transform:translateX(100%);transition:.35s cubic-bezier(.6,.05,.2,1);display:flex;flex-direction:column;padding:22px}
+.mmenu.open{transform:translateX(0)}
+.mmtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+.mclose{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);width:48px;height:48px;border-radius:12px;color:#fff;font-size:1.5rem;cursor:pointer}
+.mmenu nav{display:flex;flex-direction:column;gap:6px}
+.mmenu nav a{color:#fff;font-family:var(--f-head);font-weight:700;font-size:1.5rem;padding:14px 6px;border-bottom:1px solid rgba(255,255,255,.09)}
+.mmact{margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-top:24px}
+.mmact .btn{width:100%}
+.mmact .callrow{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--amber);font-family:var(--f-head);font-weight:800;font-size:1.5rem}
+
+/* HERO */
+.hero{background:radial-gradient(120% 120% at 80% -10%,#33475b 0%,var(--slate) 55%);color:#fff;padding:132px 0 70px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 40L40 0M-10 10L10 -10M30 50L50 30' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='2'/%3E%3C/svg%3E");opacity:.6}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(240,160,75,.14);border:1px solid rgba(240,160,75,.4);color:var(--amber);font-weight:700;font-size:.86rem;padding:8px 16px;border-radius:60px;margin-bottom:22px}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);font-weight:900;letter-spacing:-.02em;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--amber);position:relative}
+.hero p.lead{font-size:1.18rem;color:rgba(255,255,255,.82);max-width:520px;margin-bottom:30px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-trust{display:flex;gap:26px;flex-wrap:wrap}
+.hero-trust .t{display:flex;align-items:center;gap:9px;font-size:.92rem;color:rgba(255,255,255,.8);font-weight:600}
+.hero-trust .t svg{width:20px;height:20px;color:var(--amber);flex:0 0 20px}
+.hero-media{position:relative}
+.hero-media .frame{border-radius:22px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7);border:6px solid rgba(255,255,255,.08);aspect-ratio:4/5}
+.hero-media .frame img{width:100%;height:100%;object-fit:cover}
+.hero-media .float{position:absolute;background:#fff;color:var(--ink);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px}
+.hero-media .float.b1{bottom:-22px;left:-22px}
+.hero-media .float.b2{top:24px;right:-18px;background:var(--slate);color:#fff}
+.hero-media .float .ic{width:42px;height:42px;border-radius:11px;background:var(--brick);display:grid;place-items:center;flex:0 0 42px}
+.hero-media .float .ic svg{width:22px;height:22px;color:#fff}
+.hero-media .float b{font-family:var(--f-head);font-size:1.35rem;display:block;line-height:1}
+.hero-media .float span{font-size:.76rem;color:var(--muted)}
+.hero-media .float.b2 span{color:rgba(255,255,255,.6)}
+
+/* TRUST STRIP */
+.strip{background:var(--slate2);color:#fff;padding:0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.strip .item{padding:26px 22px;display:flex;align-items:center;gap:14px;border-right:1px solid rgba(255,255,255,.08)}
+.strip .item:last-child{border-right:0}
+.strip .item svg{width:30px;height:30px;color:var(--amber);flex:0 0 30px}
+.strip .item b{font-family:var(--f-head);font-size:1.02rem;display:block;line-height:1.15}
+.strip .item span{font-size:.82rem;color:rgba(255,255,255,.6)}
+
+/* SERVICES */
+.services{padding:88px 0}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 26px;transition:.25s;position:relative;overflow:hidden}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brick),var(--ember));transform:scaleX(0);transform-origin:left;transition:.3s}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.svc:hover::before{transform:scaleX(1)}
+.svc .ic{width:58px;height:58px;border-radius:15px;background:linear-gradient(135deg,#fbe6df,#f7d3c6);display:grid;place-items:center;margin-bottom:18px}
+.svc .ic svg{width:30px;height:30px;color:var(--brick-d)}
+.svc h3{font-size:1.28rem;font-weight:800;margin-bottom:9px;color:var(--slate)}
+.svc p{color:var(--muted);font-size:.96rem;margin-bottom:14px}
+.svc .price{font-family:var(--f-head);font-weight:800;color:var(--brick);font-size:1.05rem}
+.svc .price small{color:var(--muted);font-weight:600;font-family:var(--f-body);font-size:.8rem}
+
+/* PROCESS */
+.process{padding:88px 0;background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+.step{position:relative;padding:34px 24px 26px;background:#fff;border-radius:var(--r);box-shadow:var(--shadow-sm)}
+.step .n{position:absolute;top:-22px;left:24px;width:52px;height:52px;border-radius:14px;background:var(--slate);color:#fff;font-family:var(--f-head);font-weight:800;font-size:1.5rem;display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+.step:nth-child(1) .n{background:var(--brick)}
+.step h3{font-size:1.16rem;margin:16px 0 8px;color:var(--slate)}
+.step p{font-size:.92rem;color:var(--muted)}
+
+/* GALLERY */
+.gallery{padding:88px 0}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.filters button{background:#fff;border:1.5px solid var(--line);color:var(--slate);font-family:var(--f-body);font-weight:700;font-size:.9rem;padding:10px 20px;border-radius:60px;cursor:pointer;transition:.2s;min-height:44px}
+.filters button.active,.filters button:hover{background:var(--slate);color:#fff;border-color:var(--slate)}
+.grid-g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;grid-auto-rows:1fr}
+.gitem{position:relative;border-radius:var(--rs);overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:var(--slate2)}
+.gitem.wide{aspect-ratio:auto}
+.gitem img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gitem:hover img{transform:scale(1.07)}
+.gitem .ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(22,29,38,.8),transparent 55%);opacity:0;transition:.3s;display:flex;align-items:flex-end;padding:16px}
+.gitem:hover .ov{opacity:1}
+.gitem .ov span{color:#fff;font-weight:700;font-size:.9rem}
+.gitem .tag{position:absolute;top:12px;left:12px;background:rgba(255,255,255,.92);color:var(--slate);font-size:.72rem;font-weight:700;padding:5px 11px;border-radius:40px}
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:120;background:rgba(15,20,26,.94);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:86vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .x{position:absolute;top:22px;right:22px;width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.6rem;cursor:pointer}
+.lb .arw{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:1.8rem;cursor:pointer}
+.lb .arw.l{left:18px}.lb .arw.r{right:18px}
+
+/* CALCULATOR */
+.calc{padding:88px 0;background:linear-gradient(160deg,var(--slate),var(--slate2));color:#fff}
+.calc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.calc-copy .eyebrow{color:var(--amber)}
+.calc-copy .eyebrow::before{background:var(--amber)}
+.calc-copy h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;margin:14px 0 14px}
+.calc-copy p{color:rgba(255,255,255,.78);margin-bottom:22px}
+.calc-copy ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.calc-copy li{display:flex;gap:11px;align-items:flex-start;color:rgba(255,255,255,.9);font-size:.98rem}
+.calc-copy li svg{width:22px;height:22px;color:var(--amber);flex:0 0 22px;margin-top:1px}
+.calc-card{background:#fff;color:var(--ink);border-radius:24px;padding:32px;box-shadow:0 40px 80px -30px rgba(0,0,0,.6)}
+.calc-card h3{font-size:1.35rem;color:var(--slate);margin-bottom:6px}
+.calc-card .sub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.field{margin-bottom:20px}
+.field label{display:block;font-weight:700;font-size:.9rem;margin-bottom:10px;color:var(--slate)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;font-weight:600;font-size:.9rem;transition:.18s;display:flex;align-items:center;gap:9px;min-height:48px}
+.opt:hover{border-color:var(--ember)}
+.opt.sel{border-color:var(--brick);background:#fdf0ec;color:var(--brick-d)}
+.opt .dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:0 0 16px}
+.opt.sel .dot{border-color:var(--brick);background:var(--brick);box-shadow:inset 0 0 0 3px #fff}
+.rangewrap{display:flex;align-items:center;gap:16px}
+input[type=range]{flex:1;accent-color:var(--brick);height:6px}
+.areaval{font-family:var(--f-head);font-weight:800;font-size:1.4rem;color:var(--slate);min-width:92px;text-align:right}
+.result{margin-top:24px;background:var(--cream);border-radius:16px;padding:22px;text-align:center;border:1px dashed var(--line)}
+.result .rl{font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
+.result .rv{font-family:var(--f-head);font-weight:900;font-size:2.4rem;color:var(--brick);margin:6px 0;line-height:1}
+.result .rn{font-size:.8rem;color:var(--muted)}
+.calc-card .btn{width:100%;margin-top:18px}
+
+/* WHY */
+.why{padding:88px 0}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why .card{padding:28px 22px;border-radius:var(--r);background:#fff;border:1px solid var(--line);text-align:center}
+.why .card .ic{width:60px;height:60px;border-radius:50%;background:var(--cream);display:grid;place-items:center;margin:0 auto 16px}
+.why .card .ic svg{width:30px;height:30px;color:var(--brick)}
+.why .card h3{font-size:1.1rem;color:var(--slate);margin-bottom:8px}
+.why .card p{font-size:.9rem;color:var(--muted)}
+
+/* FAQ */
+.faq{padding:88px 0;background:var(--cream)}
+.faq-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:44px;align-items:start}
+.acc{border-bottom:1px solid var(--line)}
+.acc button{width:100%;text-align:left;background:none;border:0;padding:22px 0;font-family:var(--f-head);font-weight:700;font-size:1.14rem;color:var(--slate);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.acc . q-ic{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:var(--cream);display:grid;place-items:center;font-size:1.3rem;color:var(--brick);transition:.25s}
+.acc.open .q-ic{background:var(--brick);color:#fff;transform:rotate(45deg)}
+.acc .a{max-height:0;overflow:hidden;transition:.3s;color:var(--muted)}
+.acc .a p{padding-bottom:22px;font-size:.98rem}
+
+/* CONTACT */
+.contact{padding:88px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+.contact-info h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;color:var(--slate);margin:14px 0 14px}
+.contact-info p.lead{color:var(--muted);margin-bottom:28px;font-size:1.05rem}
+.cline{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.cline .ic{width:52px;height:52px;border-radius:14px;background:var(--cream);display:grid;place-items:center;flex:0 0 52px}
+.cline .ic svg{width:26px;height:26px;color:var(--brick)}
+.cline b{display:block;font-family:var(--f-head);font-size:1.2rem;color:var(--slate)}
+.cline span{font-size:.88rem;color:var(--muted)}
+.cbig{margin-top:26px;background:linear-gradient(135deg,var(--brick),var(--brick-d));border-radius:20px;padding:26px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cbig .l b{font-family:var(--f-head);font-size:1.9rem;display:block;line-height:1}
+.cbig .l span{opacity:.85;font-size:.9rem}
+.form{background:#fff;border:1px solid var(--line);border-radius:24px;padding:32px;box-shadow:var(--shadow-sm)}
+.form h3{font-size:1.4rem;color:var(--slate);margin-bottom:6px}
+.form .sub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.form .fg{margin-bottom:16px}
+.form label{display:block;font-weight:600;font-size:.88rem;margin-bottom:7px;color:var(--slate)}
+.form input,.form select,.form textarea{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;font-family:var(--f-body);font-size:1rem;background:var(--paper);transition:.2s}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--brick);background:#fff}
+.form textarea{min-height:110px;resize:vertical}
+.form .btn{width:100%}
+.form .note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:12px}
+.form-ok{display:none;text-align:center;padding:20px;background:#eaf6ef;border-radius:12px;color:var(--ok);font-weight:700;margin-top:14px}
+
+/* FOOTER */
+footer{background:var(--slate);color:rgba(255,255,255,.7);padding:56px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:36px}
+footer .logo{margin-bottom:16px}
+footer p.desc{font-size:.92rem;max-width:320px}
+footer h4{color:#fff;font-family:var(--f-head);font-size:1.05rem;margin-bottom:16px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+footer ul a{font-size:.92rem;transition:.2s}
+footer ul a:hover{color:var(--amber)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:.84rem}
+
+/* FLOAT CALL */
+.fab{position:fixed;bottom:22px;right:22px;z-index:70;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--brick),var(--brick-d));color:#fff;padding:15px 22px;border-radius:60px;font-family:var(--f-head);font-weight:800;font-size:1.05rem;box-shadow:0 16px 34px -10px rgba(192,57,43,.8);animation:pulse 2.4s infinite}
+.fab svg{width:22px;height:22px}
+@keyframes pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-media{max-width:420px;margin:0 auto;width:100%}
+  .strip .wrap{grid-template-columns:1fr 1fr}
+  .strip .item:nth-child(2){border-right:0}
+  .strip .item{border-bottom:1px solid rgba(255,255,255,.08)}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:34px 20px}
+  .grid-g{grid-template-columns:repeat(3,1fr)}
+  .calc-grid{grid-template-columns:1fr;gap:34px}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .faq-grid{grid-template-columns:1fr;gap:28px}
+  .contact-grid{grid-template-columns:1fr;gap:34px}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  .nav,.hcta .hphone,.hcta .btn{display:none}
+  .burger{display:flex}
+  .hero{padding:104px 0 54px}
+  .hero-cta .btn{flex:1}
+  .hero-trust{gap:14px 22px}
+  .strip .wrap{grid-template-columns:1fr}
+  .strip .item{border-right:0}
+  .svc-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:34px}
+  .grid-g{grid-template-columns:1fr 1fr;gap:10px}
+  .why-grid{grid-template-columns:1fr}
+  .calc-card{padding:24px}
+  .opts{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .cbig{flex-direction:column;align-items:flex-start}
+  section{scroll-margin-top:70px}
+  .services,.process,.gallery,.calc,.why,.faq,.contact{padding:56px 0}
+  .fab span{display:none}
+  .fab{padding:16px;border-radius:50%}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="wrap hbar">
+    <a href="#top" class="logo">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M2 11L12 3l10 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span class="txt"><b>Ремонт на покриви</b><span>Бригада „Ново начало"</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#uslugi">Услуги</a>
+      <a href="#proces">Процес</a>
+      <a href="#proekti">Проекти</a>
+      <a href="#kalkulator">Калкулатор</a>
+      <a href="#vaprosi">Въпроси</a>
+      <a href="#kontakt">Контакти</a>
+    </nav>
+    <div class="hcta">
+      <a href="tel:0896066004" class="hphone"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>0896 066 004</a>
+      <a href="#kontakt" class="btn btn-primary">Безплатен оглед</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mmenu">
+  <div class="mmtop">
+    <a href="#top" class="logo"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M2 11L12 3l10 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><b>Ремонт на покриви</b><span>Бригада „Ново начало"</span></span></a>
+    <button class="mclose" id="mclose">&times;</button>
+  </div>
+  <nav>
+    <a href="#uslugi" class="mlink">Услуги</a>
+    <a href="#proces" class="mlink">Процес</a>
+    <a href="#proekti" class="mlink">Проекти</a>
+    <a href="#kalkulator" class="mlink">Калкулатор</a>
+    <a href="#vaprosi" class="mlink">Въпроси</a>
+    <a href="#kontakt" class="mlink">Контакти</a>
+  </nav>
+  <div class="mmact">
+    <a href="#kontakt" class="btn btn-primary btn-lg mlink">Безплатен оглед</a>
+    <a href="tel:0896066004" class="callrow"><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>0896 066 004</a>
+  </div>
+</div>
+
+<span id="top"></span>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-badge">🏠 Всичко за вашия покрив — от А до Я</span>
+      <h1>Здрав покрив над главата ви — <em>изпълнен професионално</em></h1>
+      <p class="lead">Изграждане и ремонт на покриви в цяла България — метални покриви, керемиди, хидроизолация, улуци и тенекеджийски услуги. Коректност, добри цени и гаранция на всяка извършена работа.</p>
+      <div class="hero-cta">
+        <a href="#kontakt" class="btn btn-primary btn-lg">Заявете безплатен оглед</a>
+        <a href="#proekti" class="btn btn-ghost btn-lg">Вижте нашите проекти</a>
+      </div>
+      <div class="hero-trust">
+        <div class="t"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>Безплатен оглед и оферта</div>
+        <div class="t"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>Гаранция на работата</div>
+        <div class="t"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg>Работим в цяла България</div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <div class="frame"><img src="images/img-6.jpg" alt="Завършен покрив от бригада Ново начало"></div>
+      <div class="float b1">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <div><b>Гаранция</b><span>на всеки покрив</span></div>
+      </div>
+      <div class="float b2">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V7l7-4 7 4v14" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></span>
+        <div><b>А → Я</b><span>цялостно изпълнение</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<section class="strip">
+  <div class="wrap">
+    <div class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg><div><b>Безплатен оглед</b><span>Оглед и оферта без ангажимент</span></div></div>
+    <div class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><div><b>Гаранция</b><span>Стоим зад работата си</span></div></div>
+    <div class="item"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><div><b>Коректност</b><span>Спазени срокове и цени</span></div></div>
+    <div class="item"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg><div><b>Цяла България</b><span>Пътуваме до вашия обект</span></div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="uslugi">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Нашите услуги</span>
+      <h2>Пълна гама покривни решения</h2>
+      <p>От нов покрив до дребен ремонт — поемаме целия процес с качествени материали и опитна бригада. Цените са ориентировъчни и се уточняват след безплатен оглед.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12L12 4l9 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 11v9h14v-9M8 20v-5h4v5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <h3>Нови покриви</h3>
+        <p>Изграждане на изцяло нови покривни конструкции — дървена скеле, обшивка и покритие по избор.</p>
+        <div class="price">от €25 <small>/ м²</small></div>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9h16M4 14h16M6 9l1.5-4h9L18 9M7 14v5m5-5v5m5-5v5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Смяна на керемиди</h3>
+        <p>Подмяна на счупени или износени керемиди, пренареждане и възстановяване на цялостта на покрива.</p>
+        <div class="price">от €18 <small>/ м²</small></div>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h18M3 12l3-7h12l3 7M6 12v7h12v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Метални покриви</h3>
+        <p>Монтаж на ламаринени и метални покрития — дълготрайни, издръжливи и с чист завършек.</p>
+        <div class="price">от €20 <small>/ м²</small></div>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6c4 0 4 3 8 3s4-3 8-3M4 12c4 0 4 3 8 3s4-3 8-3M4 18c4 0 4 3 8 3s4-3 8-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3>Хидроизолация</h3>
+        <p>Надеждна защита от течове — покриви, тераси и основи с качествени хидроизолационни материали.</p>
+        <div class="price">от €12 <small>/ м²</small></div>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5v9a4 4 0 004 4h8M4 5h5v4H4M20 18v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Улуци и обшивки</h3>
+        <p>Монтаж и подмяна на улуци, водосточни тръби и ветробрани — правилно отвеждане на водата.</p>
+        <div class="price">от €10 <small>/ л.м.</small></div>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M7 21V8l5-4 5 4v13M10 21v-5h4v5M9 8h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Комини и детайли</h3>
+        <p>Ремонт и уплътняване на комини, капандури и покривни детайли — там, където най-често тече.</p>
+        <div class="price">от €80 <small>/ обект</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="proces">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Как работим</span>
+      <h2>Ясен процес в 4 стъпки</h2>
+      <p>Без изненади и скрити такси — знаете какво следва на всеки етап.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Свързваме се</h3><p>Обаждате се или оставяте заявка. Изслушваме проблема и уговаряме удобно време за оглед.</p></div>
+      <div class="step"><div class="n">2</div><h3>Безплатен оглед</h3><p>Идваме на място, оценяваме състоянието на покрива и изготвяме ясна оферта.</p></div>
+      <div class="step"><div class="n">3</div><h3>Изпълнение</h3><p>Опитната ни бригада извършва работата качествено, с подходящи материали и в срок.</p></div>
+      <div class="step"><div class="n">4</div><h3>Предаване с гаранция</h3><p>Почистваме обекта и предаваме завършения покрив с гаранция за спокойствие.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="proekti">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Нашите проекти</span>
+      <h2>Реални покриви, реални резултати</h2>
+      <p>Разгледайте част от изпълнените ни обекти в цялата страна. Натиснете върху снимка за уголемяване.</p>
+    </div>
+    <div class="filters" id="filters">
+      <button class="active" data-f="all">Всички</button>
+      <button data-f="metal">Метални покриви</button>
+      <button data-f="keramidi">Керемиди</button>
+      <button data-f="bitum">Битумни керемиди</button>
+      <button data-f="darvo">Дървени конструкции</button>
+      <button data-f="proces">В процес</button>
+    </div>
+    <div class="grid-g" id="grid">
+      <div class="gitem" data-cat="metal" data-img="images/img-6.jpg"><img src="images/img-6.jpg" alt="Метален покрив"><div class="tag">Метален покрив</div><div class="ov"><span>Завършен метален покрив</span></div></div>
+      <div class="gitem" data-cat="metal" data-img="images/img-2.jpg"><img src="images/img-2.jpg" alt="Червен метален покрив"><div class="tag">Метален покрив</div><div class="ov"><span>Ламаринено покритие</span></div></div>
+      <div class="gitem" data-cat="metal" data-img="images/img-5.jpg"><img src="images/img-5.jpg" alt="Метален покрив"><div class="tag">Метален покрив</div><div class="ov"><span>Ново покритие</span></div></div>
+      <div class="gitem" data-cat="keramidi" data-img="images/img-23.jpg"><img src="images/img-23.jpg" alt="Покрив с керемиди"><div class="tag">Керемиди</div><div class="ov"><span>Нов покрив с керемиди</span></div></div>
+      <div class="gitem" data-cat="keramidi" data-img="images/img-14.jpg"><img src="images/img-14.jpg" alt="Керемиден покрив"><div class="tag">Керемиди</div><div class="ov"><span>Изграден покрив</span></div></div>
+      <div class="gitem" data-cat="keramidi" data-img="images/img-13.jpg"><img src="images/img-13.jpg" alt="Керемиден покрив"><div class="tag">Керемиди</div><div class="ov"><span>Пренареждане на керемиди</span></div></div>
+      <div class="gitem" data-cat="keramidi" data-img="images/img-32.jpg"><img src="images/img-32.jpg" alt="Керемиди и улук"><div class="tag">Керемиди</div><div class="ov"><span>Стрехи и улуци</span></div></div>
+      <div class="gitem" data-cat="keramidi" data-img="images/img-39.jpg"><img src="images/img-39.jpg" alt="Къща с нов покрив"><div class="tag">Керемиди</div><div class="ov"><span>Завършен обект</span></div></div>
+      <div class="gitem wide" data-cat="bitum" data-img="images/img-46.jpg"><img src="images/img-46.jpg" alt="Битумни керемиди"><div class="tag">Битумни керемиди</div><div class="ov"><span>Битумно покритие</span></div></div>
+      <div class="gitem wide" data-cat="bitum" data-img="images/img-47.jpg"><img src="images/img-47.jpg" alt="Битумни керемиди"><div class="tag">Битумни керемиди</div><div class="ov"><span>Мека покривна система</span></div></div>
+      <div class="gitem" data-cat="darvo" data-img="images/img-41.jpg"><img src="images/img-41.jpg" alt="Дървена конструкция"><div class="tag">Дървена конструкция</div><div class="ov"><span>Дървена стреха</span></div></div>
+      <div class="gitem" data-cat="darvo" data-img="images/img-43.jpg"><img src="images/img-43.jpg" alt="Дървена обшивка"><div class="tag">Дървена конструкция</div><div class="ov"><span>Обшивка и улук</span></div></div>
+      <div class="gitem" data-cat="proces" data-img="images/img-42.jpg"><img src="images/img-42.jpg" alt="Монтаж на покрив"><div class="tag">В процес</div><div class="ov"><span>Работа на обекта</span></div></div>
+      <div class="gitem" data-cat="proces" data-img="images/img-26.jpg"><img src="images/img-26.jpg" alt="Бригада на работа"><div class="tag">В процес</div><div class="ov"><span>Нашата бригада</span></div></div>
+      <div class="gitem" data-cat="proces" data-img="images/img-24.jpg"><img src="images/img-24.jpg" alt="Изграждане на покрив"><div class="tag">В процес</div><div class="ov"><span>Подготовка на скелето</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc" id="kalkulator">
+  <div class="wrap calc-grid">
+    <div class="calc-copy">
+      <span class="eyebrow">Калкулатор</span>
+      <h2>Изчислете ориентировъчна цена за минута</h2>
+      <p>Изберете вида услуга и площта на покрива, за да получите приблизителна цена. За точна оферта е нужен безплатен оглед на място.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>Бърза представа за бюджета</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>Без ангажимент и без регистрация</li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>Точната цена уточняваме при оглед</li>
+      </ul>
+    </div>
+    <div class="calc-card">
+      <h3>Калкулатор за покрив</h3>
+      <p class="sub">Ориентировъчните цени включват труд и стандартни материали.</p>
+      <div class="field">
+        <label>Вид услуга</label>
+        <div class="opts" id="svcOpts">
+          <div class="opt sel" data-rate="25" data-min="12"><span class="dot"></span>Нов покрив</div>
+          <div class="opt" data-rate="18" data-min="8"><span class="dot"></span>Смяна керемиди</div>
+          <div class="opt" data-rate="20" data-min="10"><span class="dot"></span>Метален покрив</div>
+          <div class="opt" data-rate="12" data-min="6"><span class="dot"></span>Хидроизолация</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Площ на покрива: <span class="areaval" id="areaLbl" style="display:inline">80 м²</span></label>
+        <div class="rangewrap">
+          <input type="range" id="area" min="20" max="400" step="5" value="80">
+        </div>
+      </div>
+      <div class="field">
+        <label>Сложност / наклон</label>
+        <div class="opts" id="cxOpts">
+          <div class="opt sel" data-mult="1"><span class="dot"></span>Стандартен</div>
+          <div class="opt" data-mult="1.25"><span class="dot"></span>Сложен / стръмен</div>
+        </div>
+      </div>
+      <div class="result">
+        <div class="rl">Ориентировъчна цена</div>
+        <div class="rv" id="rv">€2 000 – €2 600</div>
+        <div class="rn">Крайната цена зависи от състоянието и материалите. Обадете се за точна оферта.</div>
+      </div>
+      <a href="tel:0896066004" class="btn btn-primary">Обадете се за точна оферта</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Защо да изберете нас</span>
+      <h2>Спокойствие над главата ви</h2>
+    </div>
+    <div class="why-grid">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Гаранция</h3><p>Даваме гаранция на извършената работа и стоим зад качеството ѝ.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V9l6-4 6 4v11" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="2"/></svg></div><h3>Опитна бригада</h3><p>Всичко за вашия покрив от А до Я — с внимание към всеки детайл.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4m0 12v4m10-10h-4M6 12H2m15-7l-3 3M8 16l-3 3m14 0l-3-3M8 8L5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Добри цени</h3><p>Коректни и прозрачни цени, без скрити такси и излишни разходи.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18" stroke="currentColor" stroke-width="2"/></svg></div><h3>Цяла България</h3><p>Пътуваме до вашия обект, където и да се намира в страната.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="vaprosi">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">Въпроси</span>
+      <h2 style="font-family:var(--f-head);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;color:var(--slate);margin:14px 0 14px">Често задавани въпроси</h2>
+      <p style="color:var(--muted)">Не намирате отговор? Обадете ни се на <a href="tel:0896066004" style="color:var(--brick);font-weight:700">0896 066 004</a> — ще помогнем с радост.</p>
+    </div>
+    <div class="faq-list">
+      <div class="acc"><button>Наистина ли огледът е безплатен?<span class="q-ic">+</span></button><div class="a"><p>Да. Идваме на място, оглеждаме покрива и изготвяме оферта без никакъв ангажимент от ваша страна.</p></div></div>
+      <div class="acc"><button>В кои райони работите?<span class="q-ic">+</span></button><div class="a"><p>Работим в цяла България. Пътуваме до обекта ви, независимо дали е къща, вила или стопанска сграда.</p></div></div>
+      <div class="acc"><button>Какви покриви изпълнявате?<span class="q-ic">+</span></button><div class="a"><p>Керемидени, метални (ламаринени) и битумни покриви, хидроизолация, улуци, обшивки, комини и всякакви тенекеджийски услуги.</p></div></div>
+      <div class="acc"><button>Давате ли гаранция?<span class="q-ic">+</span></button><div class="a"><p>Да, даваме гаранция на извършената работа. Условията уточняваме спрямо конкретния обект и вложените материали.</p></div></div>
+      <div class="acc"><button>Как да получа оферта?<span class="q-ic">+</span></button><div class="a"><p>Обадете се или попълнете формата за контакт. Ще се свържем с вас, за да уговорим удобно време за безплатен оглед.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <span class="eyebrow">Контакти</span>
+      <h2>Готови сме да поемем вашия покрив</h2>
+      <p class="lead">Свържете се с нас за безплатен оглед и оферта. Отговаряме бързо и коректно.</p>
+      <div class="cline">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg></span>
+        <div><b>0896 066 004</b><span>Обадете се — Наско</span></div>
+      </div>
+      <div class="cline">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18" stroke="currentColor" stroke-width="2"/></svg></span>
+        <div><b>Цяла България</b><span>Пътуваме до вашия обект</span></div>
+      </div>
+      <div class="cline">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+        <div><b>Пон – Съб, 08:00 – 19:00</b><span>Отговаряме и в извънработно време</span></div>
+      </div>
+      <a href="tel:0896066004" class="cbig">
+        <div class="l"><b>0896 066 004</b><span>Един разговор ви дели от здрав покрив</span></div>
+        <span class="btn btn-ghost" style="border-color:rgba(255,255,255,.6)">Обади се сега</span>
+      </a>
+    </div>
+    <div class="form">
+      <h3>Заявете безплатен оглед</h3>
+      <p class="sub">Попълнете данните си и ще се свържем с вас.</p>
+      <form id="leadForm">
+        <div class="fg"><label>Вашето име</label><input type="text" name="name" placeholder="Име и фамилия" required></div>
+        <div class="fg"><label>Телефон</label><input type="tel" name="phone" placeholder="Вашият телефон" required></div>
+        <div class="fg"><label>Вид услуга</label>
+          <select name="service">
+            <option>Нов покрив</option>
+            <option>Смяна на керемиди</option>
+            <option>Метален покрив</option>
+            <option>Хидроизолация</option>
+            <option>Улуци / обшивки</option>
+            <option>Ремонт на комин</option>
+            <option>Друго / не съм сигурен</option>
+          </select>
+        </div>
+        <div class="fg"><label>Кратко описание</label><textarea name="msg" placeholder="Опишете накратко проблема или обекта..."></textarea></div>
+        <button type="submit" class="btn btn-primary">Изпратете заявка</button>
+        <p class="note">Или просто се обадете на 0896 066 004</p>
+      </form>
+      <div class="form-ok" id="formOk">Благодарим! Заявката е приета — ще се свържем с вас възможно най-скоро.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="logo"><span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M2 11L12 3l10 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 10v9h14v-9" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="txt"><b>Ремонт на покриви</b><span>Бригада „Ново начало"</span></span></a>
+        <p class="desc">Всичко за вашия покрив от А до Я — метални покриви, керемиди, хидроизолация, улуци и тенекеджийски услуги в цяла България.</p>
+      </div>
+      <div>
+        <h4>Услуги</h4>
+        <ul>
+          <li><a href="#uslugi">Нови покриви</a></li>
+          <li><a href="#uslugi">Смяна на керемиди</a></li>
+          <li><a href="#uslugi">Метални покриви</a></li>
+          <li><a href="#uslugi">Хидроизолация</a></li>
+          <li><a href="#uslugi">Улуци и обшивки</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакти</h4>
+        <ul>
+          <li><a href="tel:0896066004">0896 066 004</a></li>
+          <li><a href="#kontakt">Безплатен оглед</a></li>
+          <li><a href="#proekti">Нашите проекти</a></li>
+          <li><a href="#kalkulator">Калкулатор</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ремонт на покриви — Бригада „Ново начало". Всички права запазени.</span>
+      <span>Работим в цяла България · Безплатен оглед · Гаранция</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:0896066004" class="fab"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg><span>Обади се</span></a>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb"><button class="x" id="lbx">&times;</button><button class="arw l" id="lbl">&#8249;</button><img id="lbimg" src="" alt=""><button class="arw r" id="lbr">&#8250;</button></div>
+
+<script>
+// header scroll
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+// mobile menu
+const mm=document.getElementById('mmenu');
+document.getElementById('burger').onclick=()=>mm.classList.add('open');
+document.getElementById('mclose').onclick=()=>mm.classList.remove('open');
+document.querySelectorAll('.mlink').forEach(a=>a.onclick=()=>mm.classList.remove('open'));
+// gallery filter
+const filters=document.getElementById('filters');
+const items=[...document.querySelectorAll('.gitem')];
+filters.onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  filters.querySelectorAll('button').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+  const f=b.dataset.f;items.forEach(it=>{it.style.display=(f==='all'||it.dataset.cat===f)?'':'none';});
+};
+// lightbox
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
+let vis=[],ci=0;
+function openLb(src){vis=items.filter(it=>it.style.display!=='none');ci=vis.findIndex(it=>it.dataset.img===src);show();lb.classList.add('open');}
+function show(){lbimg.src=vis[ci].dataset.img;}
+items.forEach(it=>it.onclick=()=>openLb(it.dataset.img));
+document.getElementById('lbx').onclick=()=>lb.classList.remove('open');
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open');};
+document.getElementById('lbl').onclick=()=>{ci=(ci-1+vis.length)%vis.length;show();};
+document.getElementById('lbr').onclick=()=>{ci=(ci+1)%vis.length;show();};
+addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')document.getElementById('lbl').click();if(e.key==='ArrowRight')document.getElementById('lbr').click();});
+// faq
+document.querySelectorAll('.acc button').forEach(btn=>btn.onclick=()=>{
+  const acc=btn.parentElement,a=acc.querySelector('.a'),open=acc.classList.contains('open');
+  document.querySelectorAll('.acc').forEach(x=>{x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
+  if(!open){acc.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+});
+// calculator
+let rate=25,mult=1,area=80;
+const areaEl=document.getElementById('area'),areaLbl=document.getElementById('areaLbl'),rv=document.getElementById('rv');
+function fmt(n){return '€'+Math.round(n/10)*10;}
+function calc(){const base=area*rate*mult;const lo=base*0.9,hi=base*1.2;rv.textContent=fmt(lo)+' – '+fmt(hi);}
+document.getElementById('svcOpts').onclick=e=>{const o=e.target.closest('.opt');if(!o)return;o.parentElement.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');rate=+o.dataset.rate;calc();};
+document.getElementById('cxOpts').onclick=e=>{const o=e.target.closest('.opt');if(!o)return;o.parentElement.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');mult=+o.dataset.mult;calc();};
+areaEl.oninput=()=>{area=+areaEl.value;areaLbl.textContent=area+' м²';calc();};
+calc();
+// form
+document.getElementById('leadForm').onsubmit=e=>{e.preventDefault();e.target.style.display='none';document.getElementById('formOk').style.display='block';};
+</script>
+</body>
+</html>
